@@ -3,14 +3,12 @@ package com.lanou.controller;
 import Util.ServerResponse;
 import com.lanou.model.User;
 import com.lanou.service.UserService;
-import com.sun.deploy.net.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -18,6 +16,7 @@ import javax.servlet.http.HttpSession;
  * Created by lanou on 2018/7/28.
  */
 @Controller
+@CrossOrigin
 public class UserController {
     @Autowired
     private UserService userService;
@@ -56,6 +55,7 @@ public class UserController {
     @ResponseBody
     public ServerResponse regist(User user) {
         //调用findUser方法
+        System.out.println(user);
         User user1 = findUser(user);
         if (user1 == null) {
             int isRegist = userService.regist(user);

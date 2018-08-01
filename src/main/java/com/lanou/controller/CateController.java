@@ -17,7 +17,6 @@ import java.util.List;
 public class CateController {
     @Autowired
     private CateService cateService;
-
     @RequestMapping(value = "/findByParentId")
     @ResponseBody
     public ServerResponse findByParentId(Integer parentId){
