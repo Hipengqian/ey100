@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.dao.GoodattributeMapper" >
+  <resultMap id="BaseResultMap" type="com.lanou.model.Goodattribute" >
+    <id column="gaid" property="gaid" jdbcType="INTEGER" />
+    <result column="gabrand" property="gabrand" jdbcType="VARCHAR" />
+    <result column="gacolor" property="gacolor" jdbcType="VARCHAR" />
+    <result column="gasize" property="gasize" jdbcType="VARCHAR" />
+    <result column="gaweight" property="gaweight" jdbcType="VARCHAR" />
+    <result column="gaquality" property="gaquality" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <resultMap id="goodattribue" type="com.lanou.model.Goodattribute">
+    <id column="gaid" property="gaid"></id>
+    <result column="gabrand" property="gabrand"></result>
+    <result column="gacolor" property="gacolor"></result>
+    <result column="gasize" property="gasize"></result>
+    <result column="gaweight" property="gaweight"></result>
+    <result column="gaquality" property="gaquality"></result>
+  </resultMap>
+
+
+  <sql id="Base_Column_List" >
+    gaid, gabrand, gacolor, gasize, gaweight, gaquality
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from goodattribute
+    where gaid = #{gaid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from goodattribute
+    where gaid = #{gaid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.model.Goodattribute" >
+    insert into goodattribute (gaid, gabrand, gacolor, 
+      gasize, gaweight, gaquality
+      )
+    values (#{gaid,jdbcType=INTEGER}, #{gabrand,jdbcType=VARCHAR}, #{gacolor,jdbcType=VARCHAR}, 
+      #{gasize,jdbcType=VARCHAR}, #{gaweight,jdbcType=VARCHAR}, #{gaquality,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.model.Goodattribute" >
+    insert into goodattribute
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="gaid != null" >
+        gaid,
+      </if>
+      <if test="gabrand != null" >
+        gabrand,
+      </if>
+      <if test="gacolor != null" >
+        gacolor,
+      </if>
+      <if test="gasize != null" >
+        gasize,
+      </if>
+      <if test="gaweight != null" >
+        gaweight,
+      </if>
+      <if test="gaquality != null" >
+        gaquality,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="gaid != null" >
+        #{gaid,jdbcType=INTEGER},
+      </if>
+      <if test="gabrand != null" >
+        #{gabrand,jdbcType=VARCHAR},
+      </if>
+      <if test="gacolor != null" >
+        #{gacolor,jdbcType=VARCHAR},
+      </if>
+      <if test="gasize != null" >
+        #{gasize,jdbcType=VARCHAR},
+      </if>
+      <if test="gaweight != null" >
+        #{gaweight,jdbcType=VARCHAR},
+      </if>
+      <if test="gaquality != null" >
+        #{gaquality,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.model.Goodattribute" >
+    update goodattribute
+    <set >
+      <if test="gabrand != null" >
+        gabrand = #{gabrand,jdbcType=VARCHAR},
+      </if>
+      <if test="gacolor != null" >
+        gacolor = #{gacolor,jdbcType=VARCHAR},
+      </if>
+      <if test="gasize != null" >
+        gasize = #{gasize,jdbcType=VARCHAR},
+      </if>
+      <if test="gaweight != null" >
+        gaweight = #{gaweight,jdbcType=VARCHAR},
+      </if>
+      <if test="gaquality != null" >
+        gaquality = #{gaquality,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where gaid = #{gaid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.model.Goodattribute" >
+    update goodattribute
+    set gabrand = #{gabrand,jdbcType=VARCHAR},
+      gacolor = #{gacolor,jdbcType=VARCHAR},
+      gasize = #{gasize,jdbcType=VARCHAR},
+      gaweight = #{gaweight,jdbcType=VARCHAR},
+      gaquality = #{gaquality,jdbcType=VARCHAR}
+    where gaid = #{gaid,jdbcType=INTEGER}
+  </update>
+
+  <select id="findAttribute" parameterType="java.lang.String" resultType="java.lang.String">
+    select distinct #{_goodattribute} From goodattribute
+  </select>
+</mapper>

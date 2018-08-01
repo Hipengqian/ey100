@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.dao.GoodimageMapper" >
+  <resultMap id="BaseResultMap" type="com.lanou.model.Goodimage" >
+    <id column="iid" property="iid" jdbcType="INTEGER" />
+    <result column="imagelist" property="imagelist" jdbcType="VARCHAR" />
+    <result column="bigimage" property="bigimage" jdbcType="VARCHAR" />
+    <result column="smallimage1" property="smallimage1" jdbcType="VARCHAR" />
+    <result column="smallimage2" property="smallimage2" jdbcType="VARCHAR" />
+    <result column="smallimage3" property="smallimage3" jdbcType="VARCHAR" />
+    <result column="smallimage4" property="smallimage4" jdbcType="VARCHAR" />
+    <result column="smallimage5" property="smallimage5" jdbcType="VARCHAR" />
+    <result column="image_gproductid" property="imageGproductid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    iid, imagelist, bigimage, smallimage1, smallimage2, smallimage3, smallimage4, smallimage5, 
+    image_gproductid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from goodimage
+    where iid = #{iid,jdbcType=INTEGER}
+  </select>
+  <select id="selectByGId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from goodimage
+    where image_gproductid = #{gproductid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from goodimage
+    where iid = #{iid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.model.Goodimage" >
+    insert into goodimage (iid, imagelist, bigimage, 
+      smallimage1, smallimage2, smallimage3, 
+      smallimage4, smallimage5, image_gproductid
+      )
+    values (#{iid,jdbcType=INTEGER}, #{imagelist,jdbcType=VARCHAR}, #{bigimage,jdbcType=VARCHAR}, 
+      #{smallimage1,jdbcType=VARCHAR}, #{smallimage2,jdbcType=VARCHAR}, #{smallimage3,jdbcType=VARCHAR}, 
+      #{smallimage4,jdbcType=VARCHAR}, #{smallimage5,jdbcType=VARCHAR}, #{imageGproductid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.model.Goodimage" >
+    insert into goodimage
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="iid != null" >
+        iid,
+      </if>
+      <if test="imagelist != null" >
+        imagelist,
+      </if>
+      <if test="bigimage != null" >
+        bigimage,
+      </if>
+      <if test="smallimage1 != null" >
+        smallimage1,
+      </if>
+      <if test="smallimage2 != null" >
+        smallimage2,
+      </if>
+      <if test="smallimage3 != null" >
+        smallimage3,
+      </if>
+      <if test="smallimage4 != null" >
+        smallimage4,
+      </if>
+      <if test="smallimage5 != null" >
+        smallimage5,
+      </if>
+      <if test="imageGproductid != null" >
+        image_gproductid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="iid != null" >
+        #{iid,jdbcType=INTEGER},
+      </if>
+      <if test="imagelist != null" >
+        #{imagelist,jdbcType=VARCHAR},
+      </if>
+      <if test="bigimage != null" >
+        #{bigimage,jdbcType=VARCHAR},
+      </if>
+      <if test="smallimage1 != null" >
+        #{smallimage1,jdbcType=VARCHAR},
+      </if>
+      <if test="smallimage2 != null" >
+        #{smallimage2,jdbcType=VARCHAR},
+      </if>
+      <if test="smallimage3 != null" >
+        #{smallimage3,jdbcType=VARCHAR},
+      </if>
+      <if test="smallimage4 != null" >
+        #{smallimage4,jdbcType=VARCHAR},
+      </if>
+      <if test="smallimage5 != null" >
+        #{smallimage5,jdbcType=VARCHAR},
+      </if>
+      <if test="imageGproductid != null" >
+        #{imageGproductid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.model.Goodimage" >
+    update goodimage
+    <set >
+      <if test="imagelist != null" >
+        imagelist = #{imagelist,jdbcType=VARCHAR},
+      </if>
+      <if test="bigimage != null" >
+        bigimage = #{bigimage,jdbcType=VARCHAR},
+      </if>
+      <if test="smallimage1 != null" >
+        smallimage1 = #{smallimage1,jdbcType=VARCHAR},
+      </if>
+      <if test="smallimage2 != null" >
+        smallimage2 = #{smallimage2,jdbcType=VARCHAR},
+      </if>
+      <if test="smallimage3 != null" >
+        smallimage3 = #{smallimage3,jdbcType=VARCHAR},
+      </if>
+      <if test="smallimage4 != null" >
+        smallimage4 = #{smallimage4,jdbcType=VARCHAR},
+      </if>
+      <if test="smallimage5 != null" >
+        smallimage5 = #{smallimage5,jdbcType=VARCHAR},
+      </if>
+      <if test="imageGproductid != null" >
+        image_gproductid = #{imageGproductid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where iid = #{iid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.model.Goodimage" >
+    update goodimage
+    set imagelist = #{imagelist,jdbcType=VARCHAR},
+      bigimage = #{bigimage,jdbcType=VARCHAR},
+      smallimage1 = #{smallimage1,jdbcType=VARCHAR},
+      smallimage2 = #{smallimage2,jdbcType=VARCHAR},
+      smallimage3 = #{smallimage3,jdbcType=VARCHAR},
+      smallimage4 = #{smallimage4,jdbcType=VARCHAR},
+      smallimage5 = #{smallimage5,jdbcType=VARCHAR},
+      image_gproductid = #{imageGproductid,jdbcType=VARCHAR}
+    where iid = #{iid,jdbcType=INTEGER}
+  </update>
+</mapper>

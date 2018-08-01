@@ -68,21 +68,21 @@
       password = #{password,jdbcType=VARCHAR}
     where uid = #{uid,jdbcType=INTEGER}
   </update>
+
+    <!--通过email和password登录-->
     <select id="login" parameterType="User" resultType="User">
-
     SELECT * from users where email = #{email} and password = #{password}
-
   </select>
 
+    <!--通过email查询用户-->
     <select id="findUser" parameterType="User" resultType="User">
      SELECT * from users where email = #{email}
-
   </select>
 
-    <insert id="regist" parameterType="User" >
+    <!--注册新用户-->
+    <insert id="regist" parameterType="User">
          INSERT INTO users (email,password) VALUES (#{email},#{password})
     </insert>
-
 
 
 </mapper>
