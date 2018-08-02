@@ -30,4 +30,8 @@ class GoodServiceImpl implements GoodService{
         List<String> goodattributes = goodattributeMapper.findAttribute(goodattribute);
         return goodattributes;
     }
+
+    public Goods findGoods(String gproductid) {
+        return goodsMapper.findGoods(gproductid);
+    }
 }

@@ -18,4 +18,6 @@ public interface GoodsMapper {
 
     int updateByPrimaryKey(Goods record);
     List<Goods> findList(String goodattribute);
+
+    Goods findGoods(String gproductid);
 }

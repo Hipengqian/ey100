@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.dao.OffGoodsMapper" >
+  <resultMap id="BaseResultMap" type="com.lanou.model.OffGoods" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="offid" property="offid" jdbcType="INTEGER" />
+
+    <collection property="list" ofType="com.lanou.model.Goods">
+
+      <id column="gid" property="gid"/>
+      <result column="gname" property="gname"/>
+      <result column="gprice" property="gprice"/>
+      <result column="gproductid" property="gproductid"/>
+      <result column="gbrand" property="gbrand"/>
+      <result column="gpack" property="gpack"/>
+      <result column="gaddress" property="gaddress"/>
+      <result column="gstore" property="gstore"/>
+      <result column="gcount" property="gcount"/>
+      <result column="ga_id" property="gaId"/>
+    </collection>
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    id, offid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from offgoods
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from offgoods
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.model.OffGoods" >
+    insert into offgoods (id, offid)
+    values (#{id,jdbcType=INTEGER}, #{offid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.model.OffGoods" >
+    insert into offgoods
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="offid != null" >
+        offid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="offid != null" >
+        #{offid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.model.OffGoods" >
+    update offgoods
+    <set >
+      <if test="offid != null" >
+        offid = #{offid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.model.OffGoods" >
+    update offgoods
+    set offid = #{offid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="findOffGoods"  resultMap="BaseResultMap">
+    SELECT * FROM offgoods o  inner join goods g ON o.offid=g.gid
+  </select>
+</mapper>

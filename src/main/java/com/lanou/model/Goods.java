@@ -21,7 +21,6 @@ public class Goods {
 
     private Integer gcount;
 
-
     private Integer gaId;
     //一个商品中对应多个图片
     private List<Goodimage> goodimages;

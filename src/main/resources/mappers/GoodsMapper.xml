@@ -166,5 +166,10 @@
        SELECT * from goods;
 
   </select>
+
+  <select id="findGoods" parameterType="Goods" resultType="Goods">
+    select * FROM goods;
+
+  </select>
   
 </mapper>

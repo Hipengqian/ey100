@@ -13,4 +13,6 @@ public interface GoodService {
     public List<Goods> findList(Goodattribute goodattribute);
 
     public List<String> findAttribute(String goodattribute);
+
+    Goods findGoods(String gproductid);
 }
