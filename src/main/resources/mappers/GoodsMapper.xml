@@ -167,8 +167,15 @@
         SELECT * from goods g join goodimage gi  on  g.gproductid = gi.image_gproductid WHERE g_categoryId = #{g_categoryId};
 
   </select>
+<<<<<<< HEAD
   <select id="findGoodMessage" parameterType="String" resultMap="BaseResultMap">
      SELECT * from goods g join goodimage gi  on  g.gproductid = gi.image_gproductid where g.gproductid = #{g.gproductid};
+=======
+
+  <select id="findGoods" parameterType="Goods" resultType="Goods">
+    select * FROM goods;
+
+>>>>>>> 60560d286c5d0539f41d9abc1622a6b57121558d
   </select>
   
 </mapper>

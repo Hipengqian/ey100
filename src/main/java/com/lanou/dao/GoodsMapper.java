@@ -17,6 +17,12 @@ public interface GoodsMapper {
     int updateByPrimaryKeySelective(Goods record);
 
     int updateByPrimaryKey(Goods record);
+<<<<<<< HEAD
     List<Goods> findList(Integer cateid);
     List<Goods> findGoodMessage(String productId);
+=======
+    List<Goods> findList(String goodattribute);
+
+    Goods findGoods(String gproductid);
+>>>>>>> 60560d286c5d0539f41d9abc1622a6b57121558d
 }

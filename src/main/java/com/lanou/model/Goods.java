@@ -21,6 +21,7 @@ public class Goods {
 
     private Integer gcount;
 
+<<<<<<< HEAD
     private Integer g_categoryId;
 
     public Integer getG_categoryId() {
@@ -31,6 +32,8 @@ public class Goods {
         this.g_categoryId = g_categoryId;
     }
 
+=======
+>>>>>>> 60560d286c5d0539f41d9abc1622a6b57121558d
     private Integer gaId;
     //一个商品中对应多个图片
     private List<Goodimage> goodimages;

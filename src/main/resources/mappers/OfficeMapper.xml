@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.dao.OfficeMapper" >
+  <resultMap id="BaseResultMap" type="com.lanou.model.Office" >
+    <id column="osId" property="osid" jdbcType="INTEGER" />
+    <result column="officeScene" property="officescene" jdbcType="VARCHAR" />
+    <result column="imageurl" property="imageurl" jdbcType="VARCHAR" />
+    <result column="describe" property="describe" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    osId, officeScene, imageurl, describe
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from office
+    where osId = #{osid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from office
+    where osId = #{osid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.model.Office" >
+    insert into office (osId, officeScene, imageurl, 
+      describe)
+    values (#{osid,jdbcType=INTEGER}, #{officescene,jdbcType=VARCHAR}, #{imageurl,jdbcType=VARCHAR}, 
+      #{describe,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.model.Office" >
+    insert into office
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="osid != null" >
+        osId,
+      </if>
+      <if test="officescene != null" >
+        officeScene,
+      </if>
+      <if test="imageurl != null" >
+        imageurl,
+      </if>
+      <if test="describe != null" >
+        describe,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="osid != null" >
+        #{osid,jdbcType=INTEGER},
+      </if>
+      <if test="officescene != null" >
+        #{officescene,jdbcType=VARCHAR},
+      </if>
+      <if test="imageurl != null" >
+        #{imageurl,jdbcType=VARCHAR},
+      </if>
+      <if test="describe != null" >
+        #{describe,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.model.Office" >
+    update office
+    <set >
+      <if test="officescene != null" >
+        officeScene = #{officescene,jdbcType=VARCHAR},
+      </if>
+      <if test="imageurl != null" >
+        imageurl = #{imageurl,jdbcType=VARCHAR},
+      </if>
+      <if test="describe != null" >
+        describe = #{describe,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where osId = #{osid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.model.Office" >
+    update office
+    set officeScene = #{officescene,jdbcType=VARCHAR},
+      imageurl = #{imageurl,jdbcType=VARCHAR},
+      describe = #{describe,jdbcType=VARCHAR}
+    where osId = #{osid,jdbcType=INTEGER}
+  </update>
+
+  <select id="findOffice" parameterType="Office" resultType="Office">
+    SELECT * FROM office;
+  </select>
+</mapper>

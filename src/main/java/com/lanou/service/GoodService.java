@@ -13,7 +13,13 @@ import java.util.List;
 public interface GoodService {
     public List<Goods> findList(Cate cate);
 
+<<<<<<< HEAD
     public List<Goodattribute> findAttribute();
 
     List<Goods> findGoodMessage(String productId);
+=======
+    public List<String> findAttribute(String goodattribute);
+
+    Goods findGoods(String gproductid);
+>>>>>>> 60560d286c5d0539f41d9abc1622a6b57121558d
 }

@@ -10,6 +10,7 @@ public interface GoodimageMapper {
     int insertSelective(Goodimage record);
 
     Goodimage selectByPrimaryKey(Integer iid);
+
     Goodimage selectByGId(Integer iid);
 
     int updateByPrimaryKeySelective(Goodimage record);
