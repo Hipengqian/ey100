@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lanou.dao.OrdersMapper" >
+  <resultMap id="BaseResultMap" type="com.lanou.model.Orders" >
+    <id column="oid" property="oid" jdbcType="INTEGER" />
+    <result column="o_gproductid" property="oGproductid" jdbcType="VARCHAR" />
+    <result column="onumber" property="onumber" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    oid, o_gproductid, onumber
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from orders
+    where oid = #{oid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from orders
+    where oid = #{oid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lanou.model.Orders" >
+    insert into orders (oid, o_gproductid, onumber
+      )
+    values (#{oid,jdbcType=INTEGER}, #{oGproductid,jdbcType=VARCHAR}, #{onumber,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lanou.model.Orders" >
+    insert into orders
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="oid != null" >
+        oid,
+      </if>
+      <if test="oGproductid != null" >
+        o_gproductid,
+      </if>
+      <if test="onumber != null" >
+        onumber,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="oid != null" >
+        #{oid,jdbcType=INTEGER},
+      </if>
+      <if test="oGproductid != null" >
+        #{oGproductid,jdbcType=VARCHAR},
+      </if>
+      <if test="onumber != null" >
+        #{onumber,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanou.model.Orders" >
+    update orders
+    <set >
+      <if test="oGproductid != null" >
+        o_gproductid = #{oGproductid,jdbcType=VARCHAR},
+      </if>
+      <if test="onumber != null" >
+        onumber = #{onumber,jdbcType=INTEGER},
+      </if>
+    </set>
+    where oid = #{oid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanou.model.Orders" >
+    update orders
+    set o_gproductid = #{oGproductid,jdbcType=VARCHAR},
+      onumber = #{onumber,jdbcType=INTEGER}
+    where oid = #{oid,jdbcType=INTEGER}
+  </update>
+</mapper>

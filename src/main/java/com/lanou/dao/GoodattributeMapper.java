@@ -17,5 +17,5 @@ public interface GoodattributeMapper {
 
     int updateByPrimaryKey(Goodattribute record);
 
-    List<String> findAttribute(String attribute);
+    List<Goodattribute> findAttribute();
 }

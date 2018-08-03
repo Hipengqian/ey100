@@ -167,7 +167,7 @@
         <version>9.2.8.v20150217</version>
         <configuration>
           <httpConnector>
-            <port>8094</port>
+            <port>8092</port>
           </httpConnector>
         </configuration>
       </plugin>

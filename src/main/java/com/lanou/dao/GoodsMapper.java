@@ -17,5 +17,6 @@ public interface GoodsMapper {
     int updateByPrimaryKeySelective(Goods record);
 
     int updateByPrimaryKey(Goods record);
-    List<Goods> findList(String goodattribute);
+    List<Goods> findList(Integer cateid);
+    List<Goods> findGoodMessage(String productId);
 }

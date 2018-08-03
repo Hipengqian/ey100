@@ -11,6 +11,7 @@ public class Cate {
 
     private Integer type;
 
+
     private List<Cate> list;
 
     public List<Cate> getList() {

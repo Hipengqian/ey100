@@ -2,6 +2,7 @@ package com.lanou.serviceImpl;
 
 import com.lanou.dao.GoodattributeMapper;
 import com.lanou.dao.GoodsMapper;
+import com.lanou.model.Cate;
 import com.lanou.model.Goodattribute;
 import com.lanou.model.Goods;
 import com.lanou.service.GoodService;
@@ -21,13 +22,19 @@ class GoodServiceImpl implements GoodService{
     @Autowired
     private GoodattributeMapper goodattributeMapper;
 
-    public List<Goods> findList(Goodattribute goodattribute) {
-        List<Goods> goodsList = goodsMapper.findList(goodattribute.getGabrand());
+    public List<Goods> findList(Cate cate) {
+        List<Goods> goodsList = goodsMapper.findList(cate.getCategoryid());
+        System.out.println(cate.getCategoryid());
         return  goodsList;
     }
 
-    public List<String> findAttribute(String goodattribute) {
-        List<String> goodattributes = goodattributeMapper.findAttribute(goodattribute);
+    public List<Goodattribute> findAttribute() {
+        List<Goodattribute> goodattributes = goodattributeMapper.findAttribute();
         return goodattributes;
+    }
+
+    public List<Goods> findGoodMessage(String productId) {
+        List<Goods> goodMessages =  goodsMapper.findGoodMessage(productId);
+        return goodMessages;
     }
 }

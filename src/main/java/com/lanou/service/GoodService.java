@@ -1,5 +1,6 @@
 package com.lanou.service;
 
+import com.lanou.model.Cate;
 import com.lanou.model.Goodattribute;
 import com.lanou.model.Goods;
 
@@ -10,7 +11,9 @@ import java.util.List;
  */
 
 public interface GoodService {
-    public List<Goods> findList(Goodattribute goodattribute);
+    public List<Goods> findList(Cate cate);
 
-    public List<String> findAttribute(String goodattribute);
+    public List<Goodattribute> findAttribute();
+
+    List<Goods> findGoodMessage(String productId);
 }

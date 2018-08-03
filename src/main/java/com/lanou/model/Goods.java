@@ -21,6 +21,15 @@ public class Goods {
 
     private Integer gcount;
 
+    private Integer g_categoryId;
+
+    public Integer getG_categoryId() {
+        return g_categoryId;
+    }
+
+    public void setG_categoryId(Integer g_categoryId) {
+        this.g_categoryId = g_categoryId;
+    }
 
     private Integer gaId;
     //一个商品中对应多个图片
@@ -125,6 +134,7 @@ public class Goods {
                 ", gaddress='" + gaddress + '\'' +
                 ", gstore='" + gstore + '\'' +
                 ", gcount=" + gcount +
+                ", g_categoryId=" + g_categoryId +
                 ", gaId=" + gaId +
                 ", goodimages=" + goodimages +
                 '}';

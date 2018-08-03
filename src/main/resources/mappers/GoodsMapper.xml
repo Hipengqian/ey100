@@ -12,7 +12,8 @@
     <result column="gstore" property="gstore" jdbcType="VARCHAR" />
     <result column="gcount" property="gcount" jdbcType="INTEGER" />
     <result column="ga_id" property="gaId" jdbcType="INTEGER" />
-    <collection property="goodimages" select="com.lanou.dao.GoodimageMapper.selectByGId" column="gproductid" >
+    <result column="g_categoryId" property="g_categoryId"></result>
+    <collection property="goodimages" ofType="com.lanou.model.Goodimage" >
         <id property="iid" column="iid"></id>
         <result property="imagelist" column="imagelist"></result>
         <result property="bigimage" column="bigimage"></result>
@@ -161,10 +162,13 @@
     where gid = #{gid,jdbcType=INTEGER}
   </update>
 
-  <select id="findList" parameterType="String" resultMap="BaseResultMap">
+  <select id="findList" parameterType="Cate" resultMap="BaseResultMap">
 
-       SELECT * from goods;
+        SELECT * from goods g join goodimage gi  on  g.gproductid = gi.image_gproductid WHERE g_categoryId = #{g_categoryId};
 
+  </select>
+  <select id="findGoodMessage" parameterType="String" resultMap="BaseResultMap">
+     SELECT * from goods g join goodimage gi  on  g.gproductid = gi.image_gproductid where g.gproductid = #{g.gproductid};
   </select>
   
 </mapper>

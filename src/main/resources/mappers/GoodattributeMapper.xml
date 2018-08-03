@@ -115,7 +115,7 @@
     where gaid = #{gaid,jdbcType=INTEGER}
   </update>
 
-  <select id="findAttribute" parameterType="java.lang.String" resultType="java.lang.String">
-    select distinct #{_goodattribute} From goodattribute
+  <select id="findAttribute"  resultType="com.lanou.model.Goodattribute">
+    select distinct * From goodattribute
   </select>
 </mapper>
