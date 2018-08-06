@@ -30,9 +30,6 @@ public class OfficeController {
     public OffGoodsService offGoodsService;
 
     // goods表和offgoods连表查询
-
-    @RequestMapping(value = "/findOffGoods")
-    @ResponseBody
     public List findOffGoods(){
         List  lists = offGoodsService.findOffGoods();
         return  lists;
