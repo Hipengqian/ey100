@@ -1,27 +1,13 @@
 package com.lanou.model;
 
-import java.util.List;
-
 public class Orders {
     private Integer oid;
 
-    private String oGproductid;
+    private String orderProductid;
 
-    private Integer onumber;
+    private String state;
 
-    //保存goods
-    private List<Goods> goods;
-
-    public Orders() {
-    }
-
-    public List<Goods> getGoods() {
-        return goods;
-    }
-
-    public void setGoods(List<Goods> goods) {
-        this.goods = goods;
-    }
+    private Integer ordernumber;
 
     public Integer getOid() {
         return oid;
@@ -31,19 +17,27 @@ public class Orders {
         this.oid = oid;
     }
 
-    public String getoGproductid() {
-        return oGproductid;
+    public String getOrderProductid() {
+        return orderProductid;
     }
 
-    public void setoGproductid(String oGproductid) {
-        this.oGproductid = oGproductid == null ? null : oGproductid.trim();
+    public void setOrderProductid(String orderProductid) {
+        this.orderProductid = orderProductid == null ? null : orderProductid.trim();
     }
 
-    public Integer getOnumber() {
-        return onumber;
+    public String getState() {
+        return state;
     }
 
-    public void setOnumber(Integer onumber) {
-        this.onumber = onumber;
+    public void setState(String state) {
+        this.state = state == null ? null : state.trim();
+    }
+
+    public Integer getOrdernumber() {
+        return ordernumber;
+    }
+
+    public void setOrdernumber(Integer ordernumber) {
+        this.ordernumber = ordernumber;
     }
 }

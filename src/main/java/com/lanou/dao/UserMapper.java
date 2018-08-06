@@ -2,6 +2,8 @@ package com.lanou.dao;
 
 import com.lanou.model.User;
 
+import java.util.List;
+
 public interface UserMapper {
     int deleteByPrimaryKey(Integer uid);
 
@@ -18,4 +20,6 @@ public interface UserMapper {
     public User findUser(String email);
 
     public int regist(User user);
+
+    List findUserCon();
 }

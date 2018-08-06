@@ -5,6 +5,17 @@
         <id column="uid" property="uid" jdbcType="INTEGER"/>
         <result column="email" property="email" jdbcType="VARCHAR"/>
         <result column="password" property="password" jdbcType="VARCHAR"/>
+
+        <collection property="consignees" ofType="com.lanou.model.Consignee">
+            <id column="id" property="id"></id>
+            <result column="name" property="name"></result>
+            <result column="area" property="area"></result>
+            <result column="address" property="address"></result>
+            <result column="linkman" property="linkman"></result>
+            <result column="phone" property="phone"></result>
+            <result column="email" property="email"></result>
+            <result column="user_id" property="userId"></result>
+        </collection>
     </resultMap>
     <sql id="Base_Column_List">
     uid, email, password
@@ -83,6 +94,11 @@
     <insert id="regist" parameterType="User">
          INSERT INTO users (email,password) VALUES (#{email},#{password})
     </insert>
+
+    <select id="findUserCon" resultMap="BaseResultMap">
+        SELECT * FROM consignee JOIN
+        users on consignee.user_id = users.uid
+    </select>
 
 
 </mapper>
