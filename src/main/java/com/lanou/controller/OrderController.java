@@ -26,9 +26,9 @@ public class OrderController {
     public ServerResponse updateCon(Consignee consignee){
         Integer integer = consigneeService.updateCon(consignee);
         if (integer != 0){
-            return ServerResponse.createSuccess("插入成功",integer);
+            return ServerResponse.createSuccess(1,integer);
         }else{
-            return ServerResponse.createError(1,"插入失败");
+            return ServerResponse.createError(0,"插入失败");
         }
     }
 
@@ -38,10 +38,10 @@ public class OrderController {
     public ServerResponse findUserCon(Consignee consignee){
         List list = userService.findUserCon();
         if (list.size() != 0){
-            return ServerResponse.createSuccess("查询成功",list);
+            return ServerResponse.createSuccess(1,list);
         }else{
             ServerResponse serverResponse = updateCon(consignee);
-            return ServerResponse.createSuccess("插入",serverResponse);
+            return ServerResponse.createSuccess(1,serverResponse);
         }
     }
 }

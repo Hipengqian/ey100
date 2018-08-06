@@ -38,7 +38,7 @@ public class UserController {
             return ServerResponse.createSuccess(1, loginUser);
         } else {
             //登录失败
-            return ServerResponse.createError(1, "登录失败");
+            return ServerResponse.createError(0, "登录失败");
 
         }
 
@@ -64,7 +64,7 @@ public class UserController {
                 return ServerResponse.createSuccess(1, isRegist);
             }
         }
-        return ServerResponse.createError(1, "注册失败");
+        return ServerResponse.createError(0, "注册失败");
     }
 
 }
