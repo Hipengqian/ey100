@@ -15,7 +15,11 @@ import java.util.List;
  * Created by peng on 2018/7/30.
  */
 @Service("goodService")
+<<<<<<< HEAD
+ class GoodServiceImpl implements GoodService{
+=======
 class GoodServiceImpl implements GoodService {
+>>>>>>> 7ab66abdb8f845acfdd30ecc28e241cbeba125e6
     @Autowired
     //注入dao层
     private GoodsMapper goodsMapper;
@@ -38,11 +42,19 @@ class GoodServiceImpl implements GoodService {
         return goodMessages;
     }
 
+<<<<<<< HEAD
+
+    public Goods findGoods(String gproductid) {
+        return  goodsMapper.findGoods(gproductid);
+=======
     public List<String> findAttribute(String goodattribute) {
         return null;
     }
 
     public Goods findGoods(String gproductid) {
         return goodsMapper.findGoods(gproductid);
+>>>>>>> 7ab66abdb8f845acfdd30ecc28e241cbeba125e6
     }
+
+
 }

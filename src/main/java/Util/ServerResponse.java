@@ -5,8 +5,18 @@ import java.io.Serializable;
 
 public class ServerResponse<T> implements Serializable {
     private int errorcode;
-    private  String msg;
+    private  int  rightcode;
     private  T data;
+
+    private String msg;
+
+    public int getRightcode() {
+        return rightcode;
+    }
+
+    public void setRightcode(int rightcode) {
+        this.rightcode = rightcode;
+    }
 
     public int getErrorcode() {
 
@@ -46,15 +56,15 @@ public class ServerResponse<T> implements Serializable {
 
         return new ServerResponse(errorcode,msg);
     }
-    private ServerResponse( String msg, T data){
-        this.msg = msg;
+    private ServerResponse( int rightcode, T data){
+        this.rightcode = rightcode;
         this.data = data;
 
     }
     //成功时返回的信息
-    public static  <T> ServerResponse createSuccess(String msg, T data){
+    public static  <T> ServerResponse createSuccess(int rightcode, T data){
 
-        return  new ServerResponse(msg,data);
+        return  new ServerResponse(rightcode,data);
 
     }
 }

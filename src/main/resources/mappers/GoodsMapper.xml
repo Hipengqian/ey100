@@ -170,10 +170,18 @@
 
   <select id="findGoodMessage" parameterType="String" resultMap="BaseResultMap">
      SELECT * from goods g join goodimage gi  on  g.gproductid = gi.image_gproductid where g.gproductid = #{g.gproductid};
+<<<<<<< HEAD
+
+  </select>
+
+  <select id="findGoods" parameterType="Goods" resultType="Goods">
+    select * FROM goods;
+=======
   </select>
   <select id="findGoods" parameterType="Goods" resultType="Goods">
     select * FROM goods;
 
+>>>>>>> 7ab66abdb8f845acfdd30ecc28e241cbeba125e6
   </select>
   
 </mapper>

@@ -31,7 +31,7 @@ public class GoodController {
         List<Goods> goodList = goodService.findList(cate);
         System.out.println(goodList);
         if (goodList.size() != 0) {
-            return ServerResponse.createSuccess("查询成功", goodList);
+            return ServerResponse.createSuccess(1, goodList);
         } else {
             return ServerResponse.createError(0, "查询失败");
         }
@@ -43,14 +43,11 @@ public class GoodController {
     public ServerResponse findGoodMessage(Goods goods) {
         List<Goods> goodMessages = goodService.findGoodMessage(goods.getGproductid());
         if (goodMessages.size() != 0) {
-            return ServerResponse.createSuccess("查询成功", goodMessages);
+            return ServerResponse.createSuccess(1, goodMessages);
         } else {
             return ServerResponse.createError(0, "查询失败");
         }
     }
-
-
-
 
     @RequestMapping(value = "/findGoodattribute")
     @ResponseBody
@@ -79,17 +76,10 @@ public class GoodController {
         System.out.println(list);
 
         if (goodattributes.size() != 0) {
-            return ServerResponse.createSuccess("查询成功", list);
+            return ServerResponse.createSuccess(1, list);
         } else {
             return ServerResponse.createError(0, "查询失败");
         }
     }
 
 }
-
-
-
-
-
-
-
