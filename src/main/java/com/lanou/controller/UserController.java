@@ -32,9 +32,10 @@ public class UserController {
         if (loginUser != null) {
             //登录成功
             // 把用户信息存进session
-            HttpSession requestSession = request.getSession();
+            HttpSession requestSession = request.getSession(true );
             requestSession.setAttribute("userSession", loginUser);
-            return ServerResponse.createSuccess("登录成功", loginUser);
+
+            return ServerResponse.createSuccess(1, loginUser);
         } else {
             //登录失败
             return ServerResponse.createError(1, "登录失败");
@@ -60,7 +61,7 @@ public class UserController {
         if (user1 == null) {
             int isRegist = userService.regist(user);
             if (isRegist != 0) {
-                return ServerResponse.createSuccess("注册成功", isRegist);
+                return ServerResponse.createSuccess(1, isRegist);
             }
         }
         return ServerResponse.createError(1, "注册失败");

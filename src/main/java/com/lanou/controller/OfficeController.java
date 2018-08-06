@@ -57,7 +57,7 @@ public class OfficeController {
             list.addAll(list2);
             if (officeList != null){
                 list.addAll(officeList);
-            return  ServerResponse.createSuccess("查询成功",list);
+            return  ServerResponse.createSuccess(1,list);
             }else {
                 return ServerResponse.createError(0, "查询失败");
             }

@@ -25,7 +25,7 @@ public class CateController {
            ServerResponse serverResponse = ServerResponse.createError(0, "查询无结果");
            return serverResponse;
        }else {
-           ServerResponse serverResponse = ServerResponse.createSuccess("查询成功", list);
+           ServerResponse serverResponse = ServerResponse.createSuccess(1, list);
            return serverResponse;
        }
     }

@@ -15,7 +15,7 @@ import java.util.List;
  * Created by peng on 2018/7/30.
  */
 @Service("goodService")
-class GoodServiceImpl implements GoodService{
+ class GoodServiceImpl implements GoodService{
     @Autowired
     //注入dao层
     private GoodsMapper goodsMapper;
@@ -33,13 +33,15 @@ class GoodServiceImpl implements GoodService{
         return goodattributes;
     }
 
-<<<<<<< HEAD
     public List<Goods> findGoodMessage(String productId) {
         List<Goods> goodMessages =  goodsMapper.findGoodMessage(productId);
         return goodMessages;
-=======
-    public Goods findGoods(String gproductid) {
-        return goodsMapper.findGoods(gproductid);
->>>>>>> 60560d286c5d0539f41d9abc1622a6b57121558d
     }
+
+
+    public Goods findGoods(String gproductid) {
+        return  goodsMapper.findGoods(gproductid);
+    }
+
+
 }
